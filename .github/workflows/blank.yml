@@ -36,7 +36,7 @@ jobs:
         if: env.GIT_DIFF
       - name: Test 2
         # Check only source files with differences
-        run: echo "Test 2 ${{ env.GIT_DIFF_FILTERED }}  # e.g. yarn eslint 'src/main.ts' '__tests__/test.ts'
+        run: echo "Test 2 " # e.g. yarn eslint 'src/main.ts' '__tests__/test.ts'
         if: env.GIT_DIFF && !env.MATCHED_FILES
       - name: Test 3
         # Check only if there are differences in the source code (Run a lint on all files if there are changes to yarn.lock or .eslintrc)
