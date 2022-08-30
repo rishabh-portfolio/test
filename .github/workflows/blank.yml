@@ -35,4 +35,16 @@ jobs:
         # Check only if there are differences in the source code (Run a lint on all files if there are changes to yarn.lock or .eslintrc)
         run: echo "Test 3"
         if: env.GIT_DIFF && env.MATCHED_FILES
+      - name: Run changed-files with defaults on the dir1
+        id: changed-files-for-dir1
+        uses: tj-actions/changed-files@v29.0.2
+        with:
+          path: c
+          files: |
+            c.txt
+      - name: Run step if any of the listed files above change
+        if: steps.changed-files-specific.outputs.any_changed == 'true'
+        run: |
+          echo "One or more files listed above has changed."      
+
 #git add . && git commit -m 'updated test 2' && git commit
