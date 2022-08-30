@@ -27,6 +27,7 @@ jobs:
         with:
           FILES: |
             a.txt
+      - name: Test 2
         # Check only source files with differences
         run: echo "Test 2 " # e.g. yarn eslint 'src/main.ts' '__tests__/test.ts'
         if: env.GIT_DIFF && !env.MATCHED_FILES
