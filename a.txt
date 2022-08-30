@@ -1,1 +1,1 @@
-git add . && git commit -m 'updated test 2' && git commit
+git add . && git commit -m 'updated test 2' && git push
