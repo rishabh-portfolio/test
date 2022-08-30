@@ -27,7 +27,6 @@ jobs:
         with:
           RELATIVE: |
             c
-            d
 #         PATTERNS: |
 #           +(src|__tests__)/**/*.ts
 #           !src/exclude.ts
