@@ -25,10 +25,8 @@ jobs:
       - uses: actions/checkout@v2
       - uses: technote-space/get-diff-action@v6
         with:
-#         PATTERNS: |
-#           +(src|__tests__)/**/*.ts
-#           !src/exclude.ts
-          FILE: a.txt
+          FILES: |
+            a.txt
       - name: Test 1
         run: echo "test 1"
         if: env.GIT_DIFF
