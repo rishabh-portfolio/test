@@ -25,9 +25,9 @@ jobs:
       - uses: actions/checkout@v2
       - uses: technote-space/get-diff-action@v6
         with:
-        RELATIVE: |
-          c
-          d
+          RELATIVE: |
+            c
+            d
 #         PATTERNS: |
 #           +(src|__tests__)/**/*.ts
 #           !src/exclude.ts
