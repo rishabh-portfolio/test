@@ -1,0 +1,44 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the "main" branch
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      - uses: actions/checkout@v2
+      - uses: technote-space/get-diff-action@v6
+        with:
+#         PATTERNS: |
+#           +(src|__tests__)/**/*.ts
+#           !src/exclude.ts
+          FILES: |
+            c.txt
+            a.txt
+      - name: Test 1
+        run: echo "test 1"
+        if: env.GIT_DIFF
+      - name: Test 2
+        # Check only source files with differences
+        run: echo "Test 2 ${{ env.GIT_DIFF_FILTERED }}  # e.g. yarn eslint 'src/main.ts' '__tests__/test.ts'
+        if: env.GIT_DIFF && !env.MATCHED_FILES
+      - name: Test 3
+        # Check only if there are differences in the source code (Run a lint on all files if there are changes to yarn.lock or .eslintrc)
+        run: echo "Test 3"
+        if: env.GIT_DIFF && env.MATCHED_FILES
