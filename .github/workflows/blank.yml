@@ -28,9 +28,7 @@ jobs:
 #         PATTERNS: |
 #           +(src|__tests__)/**/*.ts
 #           !src/exclude.ts
-          FILES: |
-            c.txt
-            a.txt
+          FILES: c.txt a.txt
       - name: Test 1
         run: echo "test 1"
         if: env.GIT_DIFF
@@ -42,3 +40,4 @@ jobs:
         # Check only if there are differences in the source code (Run a lint on all files if there are changes to yarn.lock or .eslintrc)
         run: echo "Test 3"
         if: env.GIT_DIFF && env.MATCHED_FILES
+#git add . && git commit -m 'updated test 2' && git commit
