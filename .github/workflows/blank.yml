@@ -28,9 +28,9 @@ jobs:
 #         PATTERNS: |
 #           +(src|__tests__)/**/*.ts
 #           !src/exclude.ts
-          FILES: |
-            c.txt
-            a.txt
+          FILE: c.txt
+          FILE: a.txt
+ #           a.txt
       - name: Test 1
         run: echo "test 1"
         if: env.GIT_DIFF
